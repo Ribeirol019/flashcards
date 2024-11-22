@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0a0b1d;
+            color: #f1f1f1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #39ff14;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .flashcard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px; /* Espaço entre os flashcards */
+            width: 100%;
+            max-width: 1000px; /* Reduzindo a largura para proporção melhor */
+        }
+
+        .flashcard {
+            position: relative;
+            width: 100%;
+            padding: 20px;
+            height: 250px; 
+            background-color: #1a1b3a; 
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0, 255, 255, 0.2);
+            color: #39ff14;
+            text-align: center;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: transform 0.4s;
+            transform-style: preserve-3d;
+        }
+
+        .flashcard.is-flipped {
+            transform: rotateY(180deg);
+        }
+
+        /* Frente e verso do flashcard */
+        .flashcard .front, .flashcard .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            backface-visibility: hidden;
+            padding: 20px;
+            font-size: 1em;
+        }
+
+        .flashcard .back {
+            transform: rotateY(180deg);
+            background-color: #14152b;
+            color: #39ff14;
+            box-shadow: 0px 4px 12px rgba(255, 0, 255, 0.2);
+        }
+
+        
+        .flashcard:hover {
+            box-shadow: 0px 0px 20px rgba(57, 255, 20, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Flashcards sobre carros</h1>
+
+   
+    <div class="flashcard-grid">
+        <div class="flashcard" onclick="flipCard(this)">
+            <div class="front">O que é um motor?</div>
+            <div class="back">O motor é a parte principal do carro que transforma combustível em energia para movimentá-lo.</div>
+        </div>
+        <div class="flashcard" onclick="flipCard(this)">
+            <div class="front">O que é uma transmissão?
+            </div>
+            <div class="back">A transmissão envia a energia do motor para as rodas, controlando a velocidade e a força do carro.</div>
+        </div>
+        <div class="flashcard" onclick="flipCard(this)">
+            <div class="front">Quais são os tipos de combustível mais comuns?</div>
+            <div class="back">Gasolina, etanol, diesel e eletricidade.</div>
+        </div>
+        <div class="flashcard" onclick="flipCard(this)">
+            <div class="front">Qual é a função do diferencial em um carro?</div>
+            <div class="back">O diferencial permite que as rodas de um mesmo eixo girem em velocidades diferentes, essencial para fazer curvas de maneira eficiente.
+            </div>
+        </div>
+        <div class="flashcard" onclick="flipCard(this)">
+            <div class="front">O que significa ABS?</div>
+            <div class="back">ABS é o sistema de freios antitravamento que evita que as rodas travem durante frenagens bruscas.</div>
+        </div>
+        <div class="flashcard" onclick="flipCard(this)">
+            <div class="front">O que significa torque em um carro?</div>
+            <div class="back">Torque é a força de rotação gerada pelo motor, que determina a capacidade do carro de acelerar e puxar cargas.</div>
+        </div>
+    </div>
+
+    <script>
+       
+        function flipCard(card) {
+            card.classList.toggle("is-flipped");
+        }
+    </script>
+
+</body>
+</html>
